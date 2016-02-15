@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702E4E17DF13DEA2DE851A79 /* Pods_Tweet_It_Your_Way.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCF101D96EF713CFDCA31F9 /* Pods_Tweet_It_Your_Way.framework */; };
 		D8AA4F3F1C7178CA006A495B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA4F3E1C7178CA006A495B /* AppDelegate.swift */; };
 		D8AA4F411C7178CA006A495B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA4F401C7178CA006A495B /* ViewController.swift */; };
 		D8AA4F441C7178CA006A495B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AA4F421C7178CA006A495B /* Main.storyboard */; };
 		D8AA4F461C7178CA006A495B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AA4F451C7178CA006A495B /* Assets.xcassets */; };
 		D8AA4F491C7178CA006A495B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AA4F471C7178CA006A495B /* LaunchScreen.storyboard */; };
+		D8AA4F511C719722006A495B /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AA4F501C719722006A495B /* TwitterClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BE99F3CBFE43B5B22A30A6F /* Pods-Tweet It Your Way.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet It Your Way.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet It Your Way/Pods-Tweet It Your Way.debug.xcconfig"; sourceTree = "<group>"; };
+		9FA04724B572B3B69CA42531 /* Pods-Tweet It Your Way.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet It Your Way.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet It Your Way/Pods-Tweet It Your Way.release.xcconfig"; sourceTree = "<group>"; };
 		D8AA4F3B1C7178CA006A495B /* Tweet It Your Way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet It Your Way.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AA4F3E1C7178CA006A495B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AA4F401C7178CA006A495B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		D8AA4F451C7178CA006A495B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8AA4F481C7178CA006A495B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8AA4F4A1C7178CA006A495B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8AA4F501C719722006A495B /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		DCCF101D96EF713CFDCA31F9 /* Pods_Tweet_It_Your_Way.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_It_Your_Way.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				702E4E17DF13DEA2DE851A79 /* Pods_Tweet_It_Your_Way.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CA72A0B8F1BBF008863EBD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BE99F3CBFE43B5B22A30A6F /* Pods-Tweet It Your Way.debug.xcconfig */,
+				9FA04724B572B3B69CA42531 /* Pods-Tweet It Your Way.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		90FBE4BF821070599838BDC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF101D96EF713CFDCA31F9 /* Pods_Tweet_It_Your_Way.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8AA4F321C7178CA006A495B = {
 			isa = PBXGroup;
 			children = (
 				D8AA4F3D1C7178CA006A495B /* Tweet It Your Way */,
 				D8AA4F3C1C7178CA006A495B /* Products */,
+				0CA72A0B8F1BBF008863EBD1 /* Pods */,
+				90FBE4BF821070599838BDC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +80,7 @@
 		D8AA4F3D1C7178CA006A495B /* Tweet It Your Way */ = {
 			isa = PBXGroup;
 			children = (
+				D8AA4F521C71972B006A495B /* API */,
 				D8AA4F3E1C7178CA006A495B /* AppDelegate.swift */,
 				D8AA4F401C7178CA006A495B /* ViewController.swift */,
 				D8AA4F421C7178CA006A495B /* Main.storyboard */,
@@ -64,6 +91,14 @@
 			path = "Tweet It Your Way";
 			sourceTree = "<group>";
 		};
+		D8AA4F521C71972B006A495B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D8AA4F501C719722006A495B /* TwitterClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8AA4F4D1C7178CA006A495B /* Build configuration list for PBXNativeTarget "Tweet It Your Way" */;
 			buildPhases = (
+				889D6CF32FA3CB9FC7AAAE05 /* Check Pods Manifest.lock */,
 				D8AA4F371C7178CA006A495B /* Sources */,
 				D8AA4F381C7178CA006A495B /* Frameworks */,
 				D8AA4F391C7178CA006A495B /* Resources */,
+				AD44496F22C2B6ED15BAEB72 /* Embed Pods Frameworks */,
+				17D1B2A58D1DF70E8F0A14C1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +169,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17D1B2A58D1DF70E8F0A14C1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tweet It Your Way/Pods-Tweet It Your Way-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		889D6CF32FA3CB9FC7AAAE05 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AD44496F22C2B6ED15BAEB72 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tweet It Your Way/Pods-Tweet It Your Way-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8AA4F371C7178CA006A495B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D8AA4F411C7178CA006A495B /* ViewController.swift in Sources */,
+				D8AA4F511C719722006A495B /* TwitterClient.swift in Sources */,
 				D8AA4F3F1C7178CA006A495B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +333,7 @@
 		};
 		D8AA4F4E1C7178CA006A495B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE99F3CBFE43B5B22A30A6F /* Pods-Tweet It Your Way.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Tweet It Your Way/Info.plist";
@@ -257,6 +345,7 @@
 		};
 		D8AA4F4F1C7178CA006A495B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FA04724B572B3B69CA42531 /* Pods-Tweet It Your Way.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Tweet It Your Way/Info.plist";
@@ -285,6 +374,7 @@
 				D8AA4F4F1C7178CA006A495B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
