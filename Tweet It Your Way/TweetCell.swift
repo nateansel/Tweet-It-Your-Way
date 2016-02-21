@@ -34,6 +34,12 @@ class TweetCell: UITableViewCell {
           formatter.dateFormat = "MM/dd/yyyy hh:mm a"
           timeStampLabel.text = formatter.stringFromDate(date)
         }
+        if tweet.liked {
+          likeButton.imageView?.image = UIImage(named: "likeActive")
+        }
+        if tweet.retweeted {
+          retweetButton.imageView?.image = UIImage(named: "retweetActive")
+        }
         self.layoutSubviews()
       }
     }
@@ -61,5 +67,16 @@ class TweetCell: UITableViewCell {
       tweet.likeCount += 1
       self.likeCountLabel.text = "\(tweet.likeCount)"
     }
+  }
+  
+  override func prepareForReuse() {
+    profileImageView.image = nil
+    usernameLabel.text = nil
+    timeStampLabel.text = nil
+    tweetTextLabel.text = nil
+    retweetCountLabel.text = nil
+    likeCountLabel.text = nil
+    retweetButton.imageView?.image = UIImage(named: "retweetInactive")
+    likeButton.imageView?.image = UIImage(named: "likeInactive")
   }
 }

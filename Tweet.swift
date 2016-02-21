@@ -16,6 +16,8 @@ class Tweet {
   var timeStamp:       NSDate?
   var retweetCount:    Int = 0
   var likeCount:       Int = 0
+  var liked:           Bool = false
+  var retweeted:       Bool = false
   
   init(dict: NSDictionary) {
     print(dict)
@@ -23,7 +25,9 @@ class Tweet {
     text         = dict["text"] as? String
     id           = dict["id_str"] as? String
     retweetCount = dict["retweet_count"] as? Int ?? 0
-    likeCount    = dict["favourites_count"] as? Int ?? 0
+    likeCount    = dict["favorite_count"] as? Int ?? 0
+    liked        = dict["favorited"] as! Bool
+    retweeted    = dict["retweeted"] as! Bool
     
     if let dateString = dict["created_at"] as? String {
       let formatter = NSDateFormatter()

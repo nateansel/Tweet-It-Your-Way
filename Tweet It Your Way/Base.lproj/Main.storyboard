@@ -70,7 +70,7 @@
                                                         <constraint firstAttribute="width" constant="60" id="RQ6-Ie-za3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlk-0U-2GF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlk-0U-2GF">
                                                     <rect key="frame" x="76" y="8" width="84" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,7 +82,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="752" text="TweetText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hek-6l-aas">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="TweetText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hek-6l-aas">
                                                     <rect key="frame" x="76" y="31" width="516" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,14 +118,14 @@
                                                         <action selector="likeButtonPressed:" destination="YD1-7w-SQj" eventType="touchUpInside" id="XUe-Zk-5FS"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-JV-gy4">
-                                                    <rect key="frame" x="46" y="76" width="22" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-JV-gy4">
+                                                    <rect key="frame" x="60" y="76" width="8" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWk-0g-reF">
-                                                    <rect key="frame" x="46" y="100" width="22" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWk-0g-reF">
+                                                    <rect key="frame" x="60" y="103" width="8" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                                                 <constraint firstItem="E2d-JV-gy4" firstAttribute="trailing" secondItem="rX4-ah-sjH" secondAttribute="trailing" id="C8d-RS-11k"/>
                                                 <constraint firstItem="7OA-ms-lBz" firstAttribute="top" secondItem="HqJ-BP-dGP" secondAttribute="topMargin" id="L37-oY-v77"/>
                                                 <constraint firstItem="qWk-0g-reF" firstAttribute="top" secondItem="E2d-JV-gy4" secondAttribute="bottom" constant="3" id="Lui-ab-8Rj"/>
+                                                <constraint firstItem="qWk-0g-reF" firstAttribute="centerY" secondItem="diS-S0-cVz" secondAttribute="centerY" id="OkT-c1-8yw"/>
                                                 <constraint firstItem="diS-S0-cVz" firstAttribute="centerX" secondItem="UtO-sp-A7j" secondAttribute="centerX" id="Q41-FT-38D"/>
                                                 <constraint firstItem="7OA-ms-lBz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wlk-0U-2GF" secondAttribute="trailing" constant="8" id="ThX-jP-urD"/>
                                                 <constraint firstItem="UtO-sp-A7j" firstAttribute="centerX" secondItem="rX4-ah-sjH" secondAttribute="centerX" id="XVu-5j-D0j"/>
@@ -152,6 +153,7 @@
                                                 <constraint firstItem="UtO-sp-A7j" firstAttribute="top" secondItem="rX4-ah-sjH" secondAttribute="bottom" constant="8" id="nCx-L7-Ibr"/>
                                                 <constraint firstItem="Hek-6l-aas" firstAttribute="leading" secondItem="rX4-ah-sjH" secondAttribute="trailing" constant="8" id="oYr-Jk-aEE"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hek-6l-aas" secondAttribute="trailing" constant="8" id="omf-pK-tNY"/>
+                                                <constraint firstItem="E2d-JV-gy4" firstAttribute="centerY" secondItem="UtO-sp-A7j" secondAttribute="centerY" id="q41-z1-hbq"/>
                                                 <constraint firstItem="UtO-sp-A7j" firstAttribute="leading" secondItem="rX4-ah-sjH" secondAttribute="leading" id="qD1-eF-c7q"/>
                                                 <constraint firstItem="diS-S0-cVz" firstAttribute="top" secondItem="UtO-sp-A7j" secondAttribute="bottom" constant="8" id="qrw-nE-Ql2"/>
                                                 <constraint firstItem="wlk-0U-2GF" firstAttribute="leading" secondItem="rX4-ah-sjH" secondAttribute="trailing" constant="8" id="rtu-pH-ZHT"/>
@@ -161,6 +163,7 @@
                                                     <exclude reference="XVu-5j-D0j"/>
                                                     <exclude reference="XrA-Gv-voc"/>
                                                     <exclude reference="mmn-Ch-UoQ"/>
+                                                    <exclude reference="Lui-ab-8Rj"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
