@@ -10,22 +10,31 @@ import UIKit
 
 class TweetCell: UITableViewCell {
   
-  @IBOutlet weak var profileImageView: UIImageView!
-  @IBOutlet weak var usernameLabel: UILabel!
-  @IBOutlet weak var tweetTextLabel: UILabel!
-  @IBOutlet weak var timeStampLabel: UILabel!
-  @IBOutlet weak var retweetButton: UIButton!
-  @IBOutlet weak var likeButton: UIButton!
+  // MARK: - Properties
+  
+  @IBOutlet weak var usernameLabel:     UILabel!
+  @IBOutlet weak var tweetTextLabel:    UILabel!
+  @IBOutlet weak var timeStampLabel:    UILabel!
   @IBOutlet weak var retweetCountLabel: UILabel!
-  @IBOutlet weak var likeCountLabel: UILabel!
+  @IBOutlet weak var likeCountLabel:    UILabel!
+  @IBOutlet weak var screennameLabel:   UILabel!
+  @IBOutlet weak var retweetButton:     UIButton!
+  @IBOutlet weak var likeButton:        UIButton!
+  @IBOutlet weak var replyButton:       UIButton!
+  @IBOutlet weak var profileImageView:  UIImageView!
   
   var tweet: Tweet? {
     didSet {
       if let tweet = tweet {
+        // Set the user information
         if let user = tweet.user {
           profileImageView.setImageWithURL(NSURL(string: user.profileImageUrl!)!)
           usernameLabel.text = user.name
+          if let screenname = user.screenname {
+            screennameLabel.text = "@\(screenname)"
+          }
         }
+        // Set the tweet infomation labels
         retweetCountLabel.text = "\(tweet.retweetCount)"
         likeCountLabel.text = "\(tweet.likeCount)"
         tweetTextLabel.text = tweet.text
@@ -34,49 +43,55 @@ class TweetCell: UITableViewCell {
           formatter.dateFormat = "MM/dd/yyyy hh:mm a"
           timeStampLabel.text = formatter.stringFromDate(date)
         }
+        // Set the tweet buttons based on the tweet's like and retweet status
         if tweet.liked {
           likeButton.imageView?.image = UIImage(named: "likeActive")
         }
         if tweet.retweeted {
           retweetButton.imageView?.image = UIImage(named: "retweetActive")
         }
+        // Layout the subviews so that the cell updates
         self.layoutSubviews()
       }
     }
   }
   
+  // MARK: - Methods
+  // MARK: Buttons
+  
   @IBAction func retweetButtonPressed(sender: AnyObject) {
-    if let id = tweet?.id {
-      TwitterClient.sharedInstance.retweetTweetWithID(id) { (tweet, error) -> () in
-        self.retweetButton.imageView?.image = UIImage(named: "retweetActive")
-      }
-    }
-    if let tweet = tweet {
-      tweet.retweetCount += 1
-      self.retweetCountLabel.text = "\(tweet.retweetCount)"
-    }
+    tweet?.toggleRetweet({ (tweet: Tweet) -> () in
+      self.tweet = tweet
+    })
   }
   
   @IBAction func likeButtonPressed(sender: AnyObject) {
-    if let id = tweet?.id {
-      TwitterClient.sharedInstance.favoriteTweetWithID(id) { (tweet, error) -> () in
-        self.likeButton.imageView?.image = UIImage(named: "likeActive")
-      }
-    }
-    if let tweet = tweet {
-      tweet.likeCount += 1
-      self.likeCountLabel.text = "\(tweet.likeCount)"
-    }
+    tweet?.toggleLike({ (tweet: Tweet) -> () in
+      self.tweet = tweet
+    })
+  }
+  
+  @IBAction func replyButtonPressed(sender: AnyObject) {
+    
+  }
+  
+  // MARK: Overrides
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    profileImageView.layer.cornerRadius = 5
+    profileImageView.layer.masksToBounds = true
   }
   
   override func prepareForReuse() {
-    profileImageView.image = nil
-    usernameLabel.text = nil
-    timeStampLabel.text = nil
-    tweetTextLabel.text = nil
-    retweetCountLabel.text = nil
-    likeCountLabel.text = nil
+    super.prepareForReuse()
+    profileImageView.image         = nil
+    usernameLabel.text             = nil
+    timeStampLabel.text            = nil
+    tweetTextLabel.text            = nil
+    retweetCountLabel.text         = nil
+    likeCountLabel.text            = nil
     retweetButton.imageView?.image = UIImage(named: "retweetInactive")
-    likeButton.imageView?.image = UIImage(named: "likeInactive")
+    likeButton.imageView?.image    = UIImage(named: "likeInactive")
   }
 }

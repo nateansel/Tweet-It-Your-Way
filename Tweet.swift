@@ -20,18 +20,17 @@ class Tweet {
   var retweeted:       Bool = false
   
   init(dict: NSDictionary) {
-    print(dict)
     user         = User(dict: dict["user"] as? NSDictionary)
     text         = dict["text"] as? String
     id           = dict["id_str"] as? String
     retweetCount = dict["retweet_count"] as? Int ?? 0
     likeCount    = dict["favorite_count"] as? Int ?? 0
-    liked        = dict["favorited"] as! Bool
-    retweeted    = dict["retweeted"] as! Bool
-    
+    liked        = dict["favorited"] as? Bool ?? false
+    retweeted    = dict["retweeted"] as? Bool ?? false
+  
     if let dateString = dict["created_at"] as? String {
       let formatter = NSDateFormatter()
-      formatter.dateFormat = "EEE MMM d hh:mm:ss Z y"
+      formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
       timeStamp = formatter.dateFromString(dateString)
     }
   }
@@ -43,5 +42,53 @@ class Tweet {
       tweets.append(tweet)
     }
     return tweets
+  }
+  
+  func toggleLike(success: (Tweet) -> ()) {
+    if liked {
+      if let id = id {
+        TwitterClient.sharedInstance.unlikeTweetWithID(id, completion: { (tweet, error) -> () in
+          if let tweet = tweet {
+            self.liked = tweet.liked
+            self.likeCount = tweet.likeCount
+          }
+        })
+      }
+    }
+    else {
+      if let id = id {
+        TwitterClient.sharedInstance.likeTweetWithID(id, completion: { (tweet, error) -> () in
+          if let tweet = tweet {
+            self.liked = tweet.liked ?? self.liked
+            self.likeCount = tweet.likeCount
+          }
+        })
+      }
+    }
+    success(self)
+  }
+  
+  func toggleRetweet(success: (Tweet) -> ()) {
+    if retweeted {
+      if let id = id {
+        TwitterClient.sharedInstance.unretweetTweetWithID(id, completion: { (tweet, error) -> () in
+          if let tweet = tweet {
+            self.retweeted = tweet.retweeted
+            self.retweetCount = tweet.retweetCount
+          }
+        })
+      }
+    }
+    else {
+      if let id = id {
+        TwitterClient.sharedInstance.retweetTweetWithID(id, completion: { (tweet, error) -> () in
+          if let tweet = tweet {
+            self.retweeted = tweet.retweeted
+            self.retweetCount = tweet.retweetCount
+          }
+        })
+      }
+    }
+    success(self)
   }
 }
