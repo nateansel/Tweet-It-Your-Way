@@ -4,6 +4,7 @@
 use_frameworks!
 
 target 'Tweet It Your Way' do
-  pod "AFNetworking"
-  pod "BDBOAuth1Manager"
+  pod 'AFNetworking'
+  pod 'BDBOAuth1Manager'
+  pod 'ObjectMapper'
 end
