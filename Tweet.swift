@@ -48,9 +48,9 @@ class Tweet {
     if liked {
       if let id = id {
         TwitterClient.sharedInstance.unlikeTweetWithID(id, completion: { (tweet, error) -> () in
-          if let tweet = tweet {
-            self.liked = tweet.liked
-            self.likeCount = tweet.likeCount
+          if let _ = tweet {
+            self.liked = false
+            self.likeCount -= 1
           }
         })
       }
@@ -58,9 +58,9 @@ class Tweet {
     else {
       if let id = id {
         TwitterClient.sharedInstance.likeTweetWithID(id, completion: { (tweet, error) -> () in
-          if let tweet = tweet {
-            self.liked = tweet.liked ?? self.liked
-            self.likeCount = tweet.likeCount
+          if let _ = tweet {
+            self.liked = true
+            self.likeCount += 1
           }
         })
       }
@@ -72,9 +72,9 @@ class Tweet {
     if retweeted {
       if let id = id {
         TwitterClient.sharedInstance.unretweetTweetWithID(id, completion: { (tweet, error) -> () in
-          if let tweet = tweet {
-            self.retweeted = tweet.retweeted
-            self.retweetCount = tweet.retweetCount
+          if let _ = tweet {
+            self.retweeted = false
+            self.retweetCount -= 1
           }
         })
       }
@@ -82,9 +82,9 @@ class Tweet {
     else {
       if let id = id {
         TwitterClient.sharedInstance.retweetTweetWithID(id, completion: { (tweet, error) -> () in
-          if let tweet = tweet {
-            self.retweeted = tweet.retweeted
-            self.retweetCount = tweet.retweetCount
+          if let _ = tweet {
+            self.retweeted = true
+            self.retweetCount += 1
           }
         })
       }

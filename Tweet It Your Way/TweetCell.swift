@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
   
@@ -40,7 +41,7 @@ class TweetCell: UITableViewCell {
         tweetTextLabel.text = tweet.text
         if let date = tweet.timeStamp {
           let formatter = NSDateFormatter()
-          formatter.dateFormat = "MM/dd/yyyy hh:mm a"
+          formatter.dateFormat = "hh:mm a"
           timeStampLabel.text = formatter.stringFromDate(date)
         }
         // Set the tweet buttons based on the tweet's like and retweet status
@@ -79,7 +80,7 @@ class TweetCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    profileImageView.layer.cornerRadius = 5
+    profileImageView.layer.cornerRadius  = 5
     profileImageView.layer.masksToBounds = true
   }
   
